@@ -6,7 +6,7 @@
 /*   By: ikoloshy <ikoloshy@unit.student.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 13:10:07 by ikoloshy          #+#    #+#             */
-/*   Updated: 2019/06/25 18:56:29 by ikoloshy         ###   ########.fr       */
+/*   Updated: 2019/06/25 19:26:41 by ikoloshy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,11 +101,18 @@ void		displayListContact(Contact *phonebook)
 
 int			displayContactById(int max_cur, Contact *phonebook)
 {
+	std::string	input;
 	int			id;
 
-	std::cin >> id;
+	std::cin >> input;
 	if (std::cin.eof())
 		return 1;
+	if (!std::isxdigit(input[0]) || (input.length() > 1))
+	{
+		std::cout << "Wrong input(" << std::endl;
+		return 0;
+	}
+	id = (int)input[0] - 48;
 	if (id >= 0 && id < max_cur)
 		phonebook[id].displayContact();
 	else

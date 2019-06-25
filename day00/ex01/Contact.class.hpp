@@ -6,7 +6,7 @@
 /*   By: ikoloshy <ikoloshy@unit.student.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 14:27:33 by ikoloshy          #+#    #+#             */
-/*   Updated: 2019/06/25 16:23:33 by ikoloshy         ###   ########.fr       */
+/*   Updated: 2019/06/25 18:29:10 by ikoloshy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define CONTACT_CLASS_H
 
 #include <iostream>
+#include <cctype>
 #include <string>
 
 class Contact
