@@ -28,6 +28,10 @@ Fixed::Fixed(Fixed const &copy)
 	*this = copy;
 }
 
+//
+// arithmetic operators
+//
+
 Fixed & Fixed::operator=(Fixed const &rhs)
 {
 	std::cout << "Assignation operator called" << std::endl;
@@ -35,10 +39,124 @@ Fixed & Fixed::operator=(Fixed const &rhs)
 	return *this;
 }
 
+Fixed & Fixed::operator+(Fixed const &rhs)
+{
+	return (this->_value + rhs.getRawBits());
+}
+
+Fixed & Fixed::operator-(Fixed const &rhs)
+{
+	return (this->_value - rhs.getRawBits());
+}
+
+Fixed & Fixed::operator/(Fixed const &rhs)
+{
+	float res = (float)this->_value / (1 << Fixed::_fractional_bits);
+
+	return (Fixed(res / rhs.toFloat()));
+}
+
+Fixed & Fixed::operator*(Fixed const &rhs)
+{
+	float res = (float)this->_value / (1 << Fixed::_fractional_bits);
+
+	return (Fixed(res * rhs.toFloat()));
+}
+
+//
+// comparison operators
+//
+
+bool	Fixed::operator>(Fixed const &rhs) const
+{
+	return (this->_value > rhs.getRawBits());
+}
+
+bool	Fixed::operator<(Fixed const &rhs) const
+{
+	return (this->_value < rhs.getRawBits());
+}
+
+bool	Fixed::operator>=(Fixed const &rhs) const
+{
+	return (this->_value >= rhs.getRawBits());
+}
+
+bool	Fixed::operator<=(Fixed const &rhs) const
+{
+	return (this->_value <= rhs.getRawBits());
+}
+
+bool	Fixed::operator==(Fixed const &rhs) const
+{
+	return (this->_value == rhs.getRawBits());
+}
+
+bool	Fixed::operator!=(Fixed const &rhs) const
+{
+	return (this->_value != rhs.getRawBits());
+}
+
 int		Fixed::getRawBits( void ) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
 	return _value;
+}
+
+//
+// ++ --
+//
+
+Fixed& Fixed::operator++(void)
+{
+	this->_fractional_bits++;
+	return this;
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed buff = *this;
+
+	++(*this);
+	return (buff);
+}
+
+Fixed& Fixed::operator--(void)
+{
+	this->_fractional_bits--;
+	return this;
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed buff = *this;
+
+	--(*this);
+	return (buff);
+}
+
+//
+// min max
+//
+
+Fixed	&Fixed::max(Fixed &x, Fixed &y)
+{
+	return ((x.getRawBits() > y.getRawBits()) ? x : y);
+}
+
+Fixed	const &Fixed::max(Fixed const &x, Fixed const &y)
+{
+	return ((x.getRawBits() > y.getRawBits()) ? x : y);
+}
+
+Fixed	&Fixed::min(Fixed &x, Fixed &y)
+{
+	return ((x.getRawBits() < y.getRawBits()) ? x : y);
+}
+
+Fixed	const &Fixed::min(Fixed const &x, Fixed const &y)
+{
+	return ((x.getRawBits() < y.getRawBits()) ? x : y);
 }
 
 void	Fixed::setRawBits(int const raw)

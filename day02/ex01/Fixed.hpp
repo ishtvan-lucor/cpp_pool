@@ -17,7 +17,28 @@ public:
 	~Fixed( void );
 	Fixed( Fixed const & copy );
 
-	Fixed			&operator=( Fixed const & rhs );
+	Fixed			&operator=(Fixed const & rhs);
+	Fixed			&operator+(Fixed const & rhs);
+	Fixed			&operator-(Fixed const & rhs);
+	Fixed			&operator*(Fixed const & rhs);
+	Fixed			&operator/(Fixed const & rhs);
+
+	Fixed			&operator++(void);
+	Fixed			operator++(int);
+	Fixed			&operator--(void);
+	Fixed			operator--(int);
+
+	bool			operator>(Fixed const & rhs) const;
+	bool			operator<(Fixed const & rhs) const;
+	bool			operator>=(Fixed const & rhs) const;
+	bool			operator<=(Fixed const & rhs) const;
+	bool			operator==(Fixed const & rhs) const;
+	bool			operator!=(Fixed const & rhs) const;
+
+	Fixed			max(Fixed &x, Fixed &y);
+	Fixed const		&max(Fixed const &x, Fixed const &y);
+	Fixed			min(Fixed &x, Fixed &y);
+	Fixed const		&min(Fixed const &x, Fixed const &y);
 
 	int				getRawBits( void ) const;
 	void			setRawBits ( int const raw );
@@ -26,6 +47,7 @@ public:
 };
 
 std::ostream	&operator<<(std::ostream &out, Fixed const &rhs);
+
 
 
 #endif //CPP_POOL_FIXED_HPP
