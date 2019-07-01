@@ -1,0 +1,8 @@
+//
+// Created by Ishtvan KOLOSHYNSKY on 2019-06-29.
+//
+
+#ifndef WAR_ISPACEMARINE_HPP
+#define WAR_ISPACEMARINE_HPP
+
+#endif //WAR_ISPACEMARINE_HPP
