@@ -1,15 +1,21 @@
-//
-// Created by Ishtvan KOLOSHYNSKY on 2019-06-29.
-//
-
-#ifndef CPP_POOL_MOUSE_HPP
-#define CPP_POOL_MOUSE_HPP
+#ifndef MOUSE_HPP
+#define MOUSE_HPP
 
 
-class Mouse
+#include "iostream"
+#include "Victim.hpp"
+
+class Mouse : public Victim
 {
+public:
+	Mouse(std::string name);
+	Mouse(Mouse const &copy);
+	Mouse	&operator=(Mouse const &target);
+	~Mouse();
 
+	std::string		getName( void ) const;
+	virtual void	getPolymorphed() const;
 };
 
-
+std::ostream &operator<<(std::ostream & out, Mouse const &rhs);
 #endif //CPP_POOL_MOUSE_HPP

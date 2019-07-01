@@ -1,14 +1,17 @@
-//
-// Created by Ishtvan KOLOSHYNSKY on 2019-06-29.
-//
+#ifndef SUPERMUTANT_HPP
+#define SUPERMUTANT_HPP
 
-#ifndef CPP_POOL_SUPERMUTANT_HPP
-#define CPP_POOL_SUPERMUTANT_HPP
+#include "Enemy.hpp"
 
-
-class SuperMutant
+class SuperMutant : public Enemy
 {
+public:
+	SuperMutant( void );
+	SuperMutant(SuperMutant const & copy);
+	SuperMutant &operator=(SuperMutant const &target);
+	virtual ~SuperMutant();
 
+	virtual void	takeDamage(int damage);
 };
 
 

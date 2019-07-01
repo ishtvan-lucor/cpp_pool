@@ -1,14 +1,23 @@
-//
-// Created by Ishtvan KOLOSHYNSKY on 2019-06-29.
-//
+#ifndef ENEMY_HPP
+#define ENEMY_HPP
 
-#ifndef CPP_POOL_ENEMY_HPP
-#define CPP_POOL_ENEMY_HPP
-
+#include <iostream>
 
 class Enemy
 {
+protected:
+	int			_hp;
+	std::string	_type;
 
+public:
+	Enemy(int hp, std::string const & type);
+	Enemy(Enemy const & copy);
+	Enemy &operator=(Enemy const &target);
+	virtual ~Enemy();
+
+	std::string		getType() const;
+	int				getHP() const;
+	virtual void	takeDamage(int);
 };
 
 

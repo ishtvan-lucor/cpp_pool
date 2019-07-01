@@ -1,16 +1,18 @@
-//
-// Created by Ishtvan KOLOSHYNSKY on 2019-06-29.
-//
+#ifndef PLASMARIFLE_HPP
+#define PLASMARIFLE_HPP
 
-#ifndef CPP_POOL_PLASMARIFLE_HPP
-#define CPP_POOL_PLASMARIFLE_HPP
+#include "AWeapon.hpp"
 
+class PlasmaRifle : public AWeapon
+{
+public:
+	PlasmaRifle(void);
+	PlasmaRifle(PlasmaRifle const &copy);
+	PlasmaRifle &operator=(PlasmaRifle const &target);
+	~PlasmaRifle();
 
-
-class PlasmaRifle {
-
+	void	attack(void) const;
 };
-
 
 
 #endif //CPP_POOL_PLASMARIFLE_HPP

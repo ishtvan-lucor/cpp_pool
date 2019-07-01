@@ -1,14 +1,15 @@
-//
-// Created by Ishtvan KOLOSHYNSKY on 2019-06-29.
-//
+#ifndef RADSCORPION_HPP
+#define RADSCORPION_HPP
 
-#ifndef CPP_POOL_RADSCORPION_HPP
-#define CPP_POOL_RADSCORPION_HPP
+#include "Enemy.hpp"
 
-
-class RadScorpion
+class RadScorpion : public Enemy
 {
-
+public:
+	RadScorpion( void );
+	RadScorpion(RadScorpion const & copy);
+	RadScorpion &operator=(RadScorpion const &target);
+	virtual ~RadScorpion();
 };
 
 

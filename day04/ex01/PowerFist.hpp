@@ -1,16 +1,18 @@
-//
-// Created by Ishtvan KOLOSHYNSKY on 2019-06-29.
-//
+#ifndef POWERFIST_HPP
+#define POWERFIST_HPP
 
-#ifndef CPP_POOL_POWERFIST_HPP
-#define CPP_POOL_POWERFIST_HPP
+#include "AWeapon.hpp"
 
+class PowerFist : public AWeapon
+{
+public:
+	PowerFist(void);
+	PowerFist(PowerFist const &copy);
+	PowerFist &operator=(PowerFist const &target);
+	~PowerFist();
 
-
-class PowerFist {
-
+	void	attack(void) const;
 };
-
 
 
 #endif //CPP_POOL_POWERFIST_HPP
