@@ -7,6 +7,9 @@
 
 #include <iostream>
 #include <stdexcept>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -25,6 +28,8 @@ public:
 
 	Bureaucrat			&operator++( void );
 	Bureaucrat			&operator--( void );
+
+	void				signForm(Form &form);
 
 	class GradeTooHighException : public std::exception
 	{

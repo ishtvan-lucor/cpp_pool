@@ -1,11 +1,12 @@
-NAME = Bureaucrat
+NAME = BureaucratFillForm
 CPP = clang++
 FLG = -Wall -Wextra -Werror
 
 SRC = main.cpp \
-	  Bureaucrat.cpp
+	  Bureaucrat.cpp \
+	  Form.cpp
 
-HDR = Bureaucrat.hpp
+HDR = Bureaucrat.hpp Form.hpp
 
 OBJ = $(SRC:.cpp=.o)
 

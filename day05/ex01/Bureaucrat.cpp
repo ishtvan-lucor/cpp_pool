@@ -56,6 +56,18 @@ Bureaucrat &Bureaucrat::operator--()
 	return *this;
 }
 
+void	Bureaucrat::signForm (Form &form)
+{
+	try {
+		form.beSigned(*this);
+		std::cout << this->_name << " signs " << form.getName() << std::endl;
+	}
+	catch (std::exception &e){
+		std::cout << this->_name << " cannot sign " << form.getName()
+		<< " because " << e.what() << std::endl;
+	}
+}
+
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
 	return ("Error : Bureaucrat grade too high!");
 }
@@ -69,5 +81,3 @@ std::ostream &operator<<(std::ostream &out,Bureaucrat const & target)
 	out << target.getName() << ", bureaucrat grade " << target.getGrade();
 	return out;
 }
-
-

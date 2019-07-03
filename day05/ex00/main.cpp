@@ -6,79 +6,58 @@
 
 #include <iostream>
 
-int main( void ) {
+int	main(void)
+{
+	try
+	{
+		Bureaucrat hermes("Hermes Conrad", 34);
 
-	Bureaucrat boss = Bureaucrat("Boss", 1);
-	std::cout << boss;
-	Bureaucrat jerk = Bureaucrat("Jerk", 150);
-	std::cout << jerk;
-	Bureaucrat petya = Bureaucrat("Petya", 34);
-	std::cout << petya;
-
-	try {
-		std::cout  << "+ 1 grade to Boss" << std::endl;
-		boss += 1;
-		std::cout << boss;
+		std::cout << hermes << std::endl;
+		++hermes;
+		std::cout << hermes << std::endl;
+		--hermes;
+		std::cout << hermes << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException e) {
+	catch (std::exception &e)
+	{
 		std::cout << e.what() << std::endl;
 	}
-	try {
-		std::cout  << "Boss++" << std::endl;
-		boss++;
-		std::cout << boss;
+	try
+	{
+		Bureaucrat monster("Beholder Monster", 11);
+
+		std::cout << monster << std::endl;
+		++(++(++(++(++(++(++(++(++(++(++monster))))))))));
+		std::cout << monster << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException e) {
+	catch (std::exception &e)
+	{
 		std::cout << e.what() << std::endl;
 	}
+	try
+	{
+		Bureaucrat numberOne("Number 1.0", 1);
 
-	try {
-		std::cout  << "- 1 grade to Jerk" << std::endl;
-		jerk -= 1;
-		std::cout << jerk;
+		--numberOne;
+		std::cout << numberOne << std::endl;
+		++numberOne;
+		std::cout << numberOne << std::endl;
+		++numberOne;
+		std::cout << numberOne << std::endl;
 	}
-	catch (Bureaucrat::GradeTooLowException e) {
+	catch (std::exception &e)
+	{
 		std::cout << e.what() << std::endl;
 	}
-	try {
-		std::cout << "--Jerk" << std::endl;
-		--jerk;
-		std::cout << jerk;
+	try
+	{
+		std::cout << "Try to initialization invalid grade for bureaucrat" << std::endl;
+
+		Bureaucrat vogel("Warden Vogel", 151);
 	}
-	catch (Bureaucrat::GradeTooLowException e) {
+	catch (std::exception &e)
+	{
 		std::cout << e.what() << std::endl;
 	}
-
-	try {
-		std::cout << "+ 6 grade to Petya" << std::endl;
-		petya += 6;
-		std::cout << petya;
-	}
-	catch (Bureaucrat::GradeTooLowException e) {
-		std::cout << e.what() << std::endl;
-	}
-
-	try {
-		std::cout << "++Petya" << std::endl;
-		++petya;
-		std::cout << petya;
-	}
-	catch (Bureaucrat::GradeTooLowException e) {
-		std::cout << e.what() << std::endl;
-	}
-	try {
-		std::cout << "Petya--" << std::endl;
-		petya--;
-		std::cout << petya;
-	}
-	catch (Bureaucrat::GradeTooLowException e) {
-		std::cout << e.what() << std::endl;
-	}
-
-	std::cout << "Create copy from Boss" << std::endl;
-	Bureaucrat copyBoss = Bureaucrat(boss);
-	std::cout << copyBoss;
-
-
 	return (0);
 }
