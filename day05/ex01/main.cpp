@@ -22,7 +22,7 @@ int	main(void)
 
 	try
 	{
-		Bureaucrat monster("Beholder Monster 1.0", 11);
+		Bureaucrat monster("Beholder Monster", 11);
 		Form form72("Entrance to hell ", 6, 4);
 		Form form729("Entrance to Cubicle Room 729", 15, 11);
 		monster.signForm(form72);
