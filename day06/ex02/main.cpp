@@ -85,6 +85,6 @@ int	main()
 	identify_from_pointer(ptr);
 
 	identify_from_reference(*ptr);
-	
+
 	return 0;
 }
