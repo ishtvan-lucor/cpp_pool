@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <string>
-
+0
 template <typename T>
 void	iter(T *array, unsigned int length, void (*f)(T const &))
 {
